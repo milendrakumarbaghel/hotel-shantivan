@@ -71,8 +71,23 @@ function hotelSeo(): Plugin {
   }
 }
 
+/**
+ * Security headers for production hosting. Mirrored in netlify.toml and vercel.json —
+ * keep the three in sync. Applied to `npm run preview` so they can be tested locally.
+ * frame-src allows Google Maps only (used when `hotel.map.embedUrl` is set).
+ */
+export const securityHeaders: Record<string, string> = {
+  'Content-Security-Policy':
+    "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self'; font-src 'self' data:; connect-src 'self'; frame-src https://www.google.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'",
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  'X-Frame-Options': 'DENY',
+}
+
 export default defineConfig({
   plugins: [react(), tailwindcss(), hotelSeo()],
+  preview: { headers: securityHeaders },
   build: {
     // Hashed bundles live in /static so they never mix with the (unhashed) media in /assets.
     assetsDir: 'static',

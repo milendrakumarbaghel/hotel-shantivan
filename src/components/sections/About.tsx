@@ -79,7 +79,7 @@ export function About() {
               <div data-parallax="6" className="absolute -inset-y-[8%] inset-x-0">
                 <Picture
                   image={primary}
-                  sizes="(min-width: 1024px) 34vw, 80vw"
+                  sizes="(min-width: 1024px) 34vw, (min-width: 640px) 52vw, 76vw"
                   objectPosition="50% 62%"
                   imgProps={{ 'data-mask-img': true }}
                 />

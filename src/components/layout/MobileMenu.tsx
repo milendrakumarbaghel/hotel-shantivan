@@ -77,7 +77,7 @@ export function MobileMenu({ open, onClose, containerRef, active }: MobileMenuPr
           className="grain fixed inset-0 flex flex-col overflow-y-auto bg-forest-night text-beige xl:hidden"
           initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
           animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-          exit={{ clipPath: 'inset(0% 0% 100% 0%)' }}
+          exit={{ clipPath: 'inset(0% 0% 100% 0%)', transition: { duration: 0.5, ease, delay: 0.1 } }}
           transition={{ duration: 0.7, ease }}
         >
           <div className="shell flex min-h-full flex-1 flex-col pb-[max(2rem,env(safe-area-inset-bottom))] pt-28">
@@ -95,7 +95,7 @@ export function MobileMenu({ open, onClose, containerRef, active }: MobileMenuPr
                       )}
                       initial={{ y: '110%' }}
                       animate={{ y: '0%' }}
-                      exit={{ y: '110%', transition: { duration: 0.3 } }}
+                      exit={{ y: '110%', transition: { duration: 0.25, delay: 0 } }}
                       transition={{ duration: 0.75, ease, delay: 0.18 + i * 0.045 }}
                     >
                       <span className="text-overline w-6 font-sans text-gold-light/70">{String(i + 1).padStart(2, '0')}</span>
@@ -110,7 +110,7 @@ export function MobileMenu({ open, onClose, containerRef, active }: MobileMenuPr
               className="mt-auto flex flex-col gap-6 pt-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
+              exit={{ opacity: 0, transition: { duration: 0.2, delay: 0 } }}
               transition={{ duration: 0.6, ease, delay: 0.55 }}
             >
               <div className="flex flex-wrap gap-3">

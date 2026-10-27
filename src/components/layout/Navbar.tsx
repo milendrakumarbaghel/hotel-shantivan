@@ -86,11 +86,12 @@ export function Navbar() {
             solid ? 'h-[4.25rem]' : 'h-20 lg:h-24',
           )}
         >
-          <a href="#home" className="group flex items-center gap-3" aria-label={`${hotel.name} — back to top`}>
+          <a href="#home" className="group flex items-center gap-3">
             <Monogram className={cn('h-9 w-auto transition-colors', light ? 'text-gold-light' : 'text-gold-deep')} />
             <span className="flex flex-col leading-none">
-              <span className="text-[0.56rem] font-bold uppercase tracking-[0.42em] opacity-80">Hotel</span>
+              <span className="text-[0.56rem] font-bold uppercase tracking-[0.42em] opacity-80">Hotel</span>{' '}
               <span className="font-serif text-[1.65rem] leading-[1.05] tracking-[0.02em]">{hotel.shortName}</span>
+              <span className="sr-only">, back to top</span>
             </span>
           </a>
 

@@ -32,8 +32,9 @@ export function Hero() {
         const elapsed = performance.now() / 1000
         if (elapsed < CURTAIN_LIFT + 1.2) {
           const tl = gsap.timeline({ delay: Math.max(0, CURTAIN_LIFT - 0.1 - elapsed), defaults: { ease: EASE.silk } })
-          tl.from('[data-hero-media]', { autoAlpha: 0, duration: 1.4, ease: 'power2.out' }, 0)
-            .from('[data-hero-zoom]', { scale: 1.08, duration: 2.4 }, 0)
+          // The media is never hidden on phones: as the largest element it should paint (and count as LCP)
+          // immediately, under the curtain. Desktop reveals the arch with a clip-path wipe instead.
+          tl.from('[data-hero-zoom]', { scale: 1.08, duration: 2.4 }, 0)
           if (desktop) {
             tl.from('[data-hero-media]', { clipPath: 'inset(100% 0% 0% 0%)', duration: 1.5, ease: 'expo.inOut', clearProps: 'clipPath' }, 0)
               .from('[data-hero-accent]', { clipPath: 'inset(100% 0% 0% 0%)', duration: 1.3, ease: 'expo.inOut', clearProps: 'clipPath' }, 0.45)
@@ -41,7 +42,8 @@ export function Hero() {
           }
           tl.from('[data-hero-overline]', { autoAlpha: 0, y: 18, duration: 0.8 }, 0.3)
             .from('[data-hero-title] [data-line]', { yPercent: 115, rotate: 2.5, duration: 1.15, stagger: 0.11 }, 0.4)
-            .from('[data-hero-copy]', { autoAlpha: 0, y: 26, duration: 0.9 }, 0.85)
+            // Transform-only (no fade): the paragraph is the mobile LCP element and must paint immediately.
+            .from('[data-hero-copy]', { y: 34, duration: 1.1 }, 0.75)
             .from('[data-hero-cta] > *', { autoAlpha: 0, y: 22, duration: 0.8, stagger: 0.09 }, 1.0)
             .from('[data-hero-meta]', { autoAlpha: 0, duration: 0.9 }, 1.25)
         }

@@ -18,7 +18,7 @@ const p = (...parts) => path.join(root, ...parts)
 const exists = (file) => access(file).then(() => true, () => false)
 
 const sources = JSON.parse(await readFile(p('media/media-sources.json'), 'utf8'))
-const WIDTHS = [480, 960]
+const WIDTHS = [480, 640, 960]
 
 for (const dir of ['public/assets/images', 'public/assets/optimized', 'public/assets/posters']) {
   await mkdir(p(dir), { recursive: true })

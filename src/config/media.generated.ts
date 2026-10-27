@@ -6,6 +6,7 @@ export const imageMeta = {
     "height": 1280,
     "widths": [
       480,
+      640,
       960
     ],
     "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBACdASoQABUAPu1iqk2ppaQiMAgBMB2JbACdMoR3ABo/WZgFQxiAyAD8TJgDBpWxNnXmiUf1p2/NplhLbGcm5HAnIhvRSfz37rKijxKec/kerJCGrzULaBJsjJNjfAL0nFQMY1H31TsAAAA="
@@ -15,6 +16,7 @@ export const imageMeta = {
     "height": 1280,
     "widths": [
       480,
+      640,
       960
     ],
     "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoQABUAPu1iqU2ppaOiMAgBMB2JaACdMoMYADwqER95D9QaeZwAzZN3TFFXdVl+9JFENyPDeZ+8GAyax3k5KECNA+R4G5CSIHbpS3LZTbAchQT5BPJJzNG+7cWaI5shRIZcAAAA"
@@ -24,6 +26,7 @@ export const imageMeta = {
     "height": 1280,
     "widths": [
       480,
+      640,
       960
     ],
     "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQBACdASoQABUAPu1kqU2ppaQiMAgBMB2JQBdgAx1BsKuQq790iIXQAAD+r+64lkOjNKY/ZdEG96UCNfmG1yWnVoqqg39pISY2ih2vAYVR+k6VRGqT1YCylr8Bc4bo8XzDw+Wq6AA="
@@ -33,6 +36,7 @@ export const imageMeta = {
     "height": 1280,
     "widths": [
       480,
+      640,
       720
     ],
     "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwAgCdASoQABwAA4BaJYgCdAC9U+DC4y2NGUtQAP4vgMhPWyxZ1I7THwlKOcA+wy3P8BTM2IlYx4XdCNRzwn+MTVJHTHB+sSqNuORJB1ZOw0Rbjgo0YUgA"
@@ -51,6 +55,7 @@ export const imageMeta = {
     "height": 1280,
     "widths": [
       480,
+      640,
       960
     ],
     "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACQAwCdASoQABUAPu1kqk4ppaQiMAgBMB2JZQDCgA1mN3d5z5foAP6zjdH3x+AZXRs2lnE2BLsRUt/xMwjbPx2LKK0+CnNhLqbt5ax5dhKzdI1AoNBA3X9AdTNNf24fIG+sAAAA"

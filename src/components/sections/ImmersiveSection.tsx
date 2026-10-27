@@ -15,14 +15,14 @@ const LanternField = lazy(() => import('../three/LanternField'))
 
 /** Photographs hung along the virtual corridor: x in vw, y in vh, z in px (negative = further away). */
 const FRAMES: { id: ImageId; x: number; y: number; z: number; arch?: boolean }[] = [
-  { id: 'entrance-welcome-still', x: -27, y: 4, z: -300, arch: true },
-  { id: 'corridor-symmetry-still', x: 27, y: -6, z: -1000 },
-  { id: 'room-coral', x: -29, y: -4, z: -1700 },
-  { id: 'dining-hall-still', x: 28, y: 6, z: -2400, arch: true },
-  { id: 'room-blush', x: -28, y: 6, z: -3100, arch: true },
-  { id: 'garden-lights-night', x: 29, y: -5, z: -3800 },
-  { id: 'room-mist', x: -27, y: -3, z: -4500 },
-  { id: 'exterior-signage-night', x: 28, y: 3, z: -5200, arch: true },
+  { id: 'entrance-welcome-still', x: -32, y: 4, z: -300, arch: true },
+  { id: 'corridor-symmetry-still', x: 32, y: -6, z: -1000 },
+  { id: 'room-coral', x: -34, y: -4, z: -1700 },
+  { id: 'dining-hall-still', x: 33, y: 6, z: -2400, arch: true },
+  { id: 'room-blush', x: -33, y: 6, z: -3100, arch: true },
+  { id: 'garden-lights-night', x: 34, y: -5, z: -3800 },
+  { id: 'room-mist', x: -32, y: -3, z: -4500 },
+  { id: 'exterior-signage-night', x: 33, y: 3, z: -5200, arch: true },
 ]
 const FINAL_Z = -6100
 const CAMERA_TRAVEL = -FINAL_Z
@@ -60,7 +60,7 @@ function CorridorScene() {
         const updateFrames = (cameraZ: number) => {
           depths.forEach((z, i) => {
             const world = z + cameraZ
-            const fogIn = gsap.utils.clamp(0, 1, (world + 3600) / 1800)
+            const fogIn = gsap.utils.clamp(0, 1, (world + 2400) / 1300)
             const passOut = gsap.utils.clamp(0, 1, (650 - world) / 350)
             setFrameOpacity[i](Math.min(fogIn, passOut))
             frames[i].style.visibility = world > 640 ? 'hidden' : 'visible'
@@ -175,6 +175,7 @@ function CorridorScene() {
           ))}
         </ol>
         <div aria-hidden className="pointer-events-none absolute inset-0 grid place-items-center">
+          <div className="absolute h-[26rem] w-[44rem] max-w-full bg-[radial-gradient(closest-side,rgba(19,40,28,0.82),rgba(19,40,28,0.45)_55%,transparent)]" />
           {phrases.map((p) => (
             <p key={p.k} data-phrase className="invisible absolute max-w-[30rem] px-6 text-center font-serif text-[clamp(2.4rem,1.5rem+2.4vw,4rem)] italic leading-[1.05] text-beige [text-shadow:0_2px_30px_rgba(19,40,28,0.8)]">
               <span className="text-overline mb-5 block not-italic text-gold-light">{p.k}</span>

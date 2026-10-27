@@ -56,10 +56,7 @@ function SchematicMap() {
           {hotel.name}
         </text>
       </svg>
-      <figcaption className="flex items-center justify-between gap-4 border-t border-beige/10 px-5 py-3 text-[0.72rem] text-beige/65">
-        <span>Diagram — not to scale</span>
-        <span className="text-overline text-gold-light">{hotel.landmark}</span>
-      </figcaption>
+      <figcaption className="border-t border-beige/10 px-5 py-3 text-[0.72rem] text-beige/65">Diagram — not to scale</figcaption>
     </figure>
   )
 }

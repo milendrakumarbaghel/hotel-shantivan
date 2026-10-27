@@ -1,10 +1,13 @@
 import { z } from 'zod'
 import { parseLocalDate, todayISO } from './dates'
 
+// Zod's JIT probes `new Function`, which the site's Content-Security-Policy forbids. Run jitless.
+z.config({ jitless: true })
+
 export const MAX_GUESTS = 20
 
 /** Accepts common Indian & international formats: +91 98765 43210, 098765-43210, (0755) 123 4567 … */
-const PHONE_PATTERN = /^\+?[\d\s\-()]{7,20}$/
+const PHONE_PATTERN = /^\+?[\d\s\-()]+$/
 
 export function createBookingSchema(today: string = todayISO()) {
   return z

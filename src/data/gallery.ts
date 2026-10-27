@@ -33,6 +33,8 @@ export const galleryItems: GalleryItem[] = [
   { kind: 'image', id: 'room-azure', group: 'rooms', span: 'tall' },
   { kind: 'image', id: 'entrance-welcome-still', group: 'outside', span: 'wide', focus: '50% 55%' },
   { kind: 'video', id: 'bed-linen-detail', group: 'rooms', span: 'square' },
+  { kind: 'video', id: 'room-azure-walkthrough', group: 'rooms', span: 'tall' },
+  { kind: 'video', id: 'corridor-arches', group: 'interiors', span: 'tall' },
 ]
 
 /** Resolved media (alt text, caption, files) for a gallery entry. */
