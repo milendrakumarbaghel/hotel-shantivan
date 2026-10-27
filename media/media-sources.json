@@ -1,0 +1,33 @@
+{
+  "$comment": "Maps original files in media/originals to stable web asset ids. Run `npm run media` after editing.",
+  "images": [
+    { "id": "exterior-entrance-day", "source": "WhatsApp Image 2026-10-25 at 16.09.46 (1).jpeg" },
+    { "id": "room-coral", "source": "WhatsApp Image 2026-10-25 at 16.09.46.jpeg" },
+    { "id": "room-blush", "source": "WhatsApp Image 2026-10-25 at 16.09.47.jpeg" },
+    { "id": "garden-lights-night", "source": "WhatsApp Image 2026-10-25 at 16.09.48 (1).jpeg" },
+    {
+      "id": "exterior-signage-night",
+      "source": "WhatsApp Image 2026-10-25 at 16.09.48.jpeg",
+      "crop": { "left": 0, "top": 116, "width": 591, "height": 1048 }
+    },
+    { "id": "room-mist", "source": "WhatsApp Image 2026-10-25 at 16.09.49.jpeg" }
+  ],
+  "videos": [
+    { "id": "corridor-arches", "source": "WhatsApp Video 2026-10-25 at 16.09.50 (1).mp4" },
+    { "id": "room-azure-walkthrough", "source": "WhatsApp Video 2026-10-25 at 16.09.52.mp4" },
+    { "id": "entrance-welcome", "source": "WhatsApp Video 2026-10-25 at 16.09.53 (1).mp4" },
+    { "id": "dining-hall", "source": "WhatsApp Video 2026-10-25 at 16.09.51 (1).mp4" },
+    { "id": "dining-ceiling", "source": "WhatsApp Video 2026-10-25 at 16.09.50.mp4" },
+    { "id": "corridor-warm", "source": "WhatsApp Video 2026-10-25 at 16.09.51.mp4" },
+    { "id": "corridor-symmetry", "source": "WhatsApp Video 2026-10-25 at 16.09.54.mp4" },
+    { "id": "room-coral-detail", "source": "WhatsApp Video 2026-10-25 at 16.09.53.mp4" },
+    { "id": "bed-linen-detail", "source": "WhatsApp Video 2026-10-25 at 16.09.49.mp4" }
+  ],
+  "stills": [
+    { "id": "room-azure", "source": "WhatsApp Video 2026-10-25 at 16.09.52.mp4", "at": 0.55 },
+    { "id": "dining-hall-still", "source": "WhatsApp Video 2026-10-25 at 16.09.51 (1).mp4", "at": 0.85 },
+    { "id": "corridor-symmetry-still", "source": "WhatsApp Video 2026-10-25 at 16.09.54.mp4", "at": 0.5 },
+    { "id": "entrance-welcome-still", "source": "WhatsApp Video 2026-10-25 at 16.09.53 (1).mp4", "at": 0.35 },
+    { "id": "dining-ceiling-still", "source": "WhatsApp Video 2026-10-25 at 16.09.50.mp4", "at": 0.5 }
+  ]
+}
