@@ -4,7 +4,7 @@ import { CalendarDays, Check, Copy, Info, Minus, Phone, Plus, Send } from 'lucid
 import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
 import { useForm, useWatch } from 'react-hook-form'
 import { BOOKING_NOTICE } from '../../config/hotel'
-import { roomTitle, rooms } from '../../data/rooms'
+import { roomPreferences } from '../../data/rooms'
 import { usePrefersReducedMotion } from '../../hooks/useMediaQuery'
 import { createBookingSchema, MAX_GUESTS, type BookingFormValues } from '../../lib/booking'
 import { phoneHref, whatsappNumber, whatsappUrl } from '../../lib/contact'
@@ -166,10 +166,16 @@ export default function BookingForm() {
     defaultValues: { name: '', phone: '', checkIn: '', checkOut: '', guests: 2, room: '', message: '' },
   })
 
-  // A room card's "Enquire" button pre-selects that room here.
+  // A room card's "Enquire" button names a photographed room, which is not one of the dropdown options,
+  // so it is noted in the message instead — never overwriting anything the guest has typed.
+  const autoMessage = useRef('')
   useEffect(() => {
-    if (preferredRoom) setValue('room', preferredRoom)
-  }, [preferredRoom, setValue])
+    if (!preferredRoom) return
+    const current = getValues('message') ?? ''
+    if (current && current !== autoMessage.current) return
+    autoMessage.current = `I am interested in the room shown as "${preferredRoom}" on your website.`
+    setValue('message', autoMessage.current)
+  }, [preferredRoom, getValues, setValue])
 
   const checkIn = useWatch({ control, name: 'checkIn' })
   const minCheckOut = checkIn ? addDaysISO(checkIn, 1) : today ? addDaysISO(today, 1) : undefined
@@ -320,9 +326,9 @@ export default function BookingForm() {
               <Field label="Preferred room" htmlFor={id('room')} optional className="sm:col-span-2">
                 <select id={id('room')} className={cn(inputClass, 'appearance-none bg-[length:1rem] bg-[right_1rem_center] bg-no-repeat pr-10')} style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23244a36' stroke-width='1.6'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")` }} {...register('room')}>
                   <option value="">No preference</option>
-                  {rooms.map((room) => (
-                    <option key={room.id} value={roomTitle(room)}>
-                      {roomTitle(room)}
+                  {roomPreferences.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
                     </option>
                   ))}
                 </select>

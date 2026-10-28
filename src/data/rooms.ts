@@ -10,6 +10,7 @@ import type { ImageId, VideoId } from '../config/media'
  *  - `features` only list what is visible in the owner's own photographs.
  *
  * To publish confirmed details, fill in `name`, `occupancy` and/or `price`.
+ * The booking form's room options live in `roomPreferences` below, not in this list.
  */
 export interface Room {
   id: string
@@ -78,3 +79,6 @@ export const rooms: Room[] = [
 ]
 
 export const roomTitle = (room: Room) => room.name ?? room.descriptor
+
+/** Options of the booking form's "Preferred room" dropdown (sent in the enquiry message). */
+export const roomPreferences = ['AC Room', 'Non-AC Room'] as const

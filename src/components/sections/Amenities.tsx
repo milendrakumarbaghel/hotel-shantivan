@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { BedDouble, Plane, Snowflake, Sparkles, Trees, UtensilsCrossed, type LucideIcon } from 'lucide-react'
+import { AirVent, Trees, UtensilsCrossed, type LucideIcon } from 'lucide-react'
 import { useRef } from 'react'
 import { visibleAmenities, type AmenityIcon } from '../../data/amenities'
 import { usePrefersReducedMotion } from '../../hooks/useMediaQuery'
@@ -7,12 +7,9 @@ import { useReveal } from '../animations/useReveal'
 import { Overline, SplitHeading } from '../ui/Typography'
 
 const icons: Record<AmenityIcon, LucideIcon> = {
-  snowflake: Snowflake,
+  'air-vent': AirVent,
   utensils: UtensilsCrossed,
   trees: Trees,
-  bed: BedDouble,
-  sparkles: Sparkles,
-  plane: Plane,
 }
 
 export function Amenities() {
@@ -45,7 +42,8 @@ export function Amenities() {
               <motion.li
                 data-item
                 key={amenity.id}
-                className="group relative flex min-h-[15rem] flex-col bg-beige p-7 transition-colors duration-500 hover:bg-white sm:p-8"
+                // An odd card out spans the full row in the 2-column layout, so no empty cell is left behind.
+                className="group relative flex min-h-[15rem] flex-col bg-beige p-7 transition-colors duration-500 hover:bg-white sm:p-8 sm:last:odd:col-span-2 xl:last:odd:col-span-1"
                 initial="rest"
                 whileHover={reducedMotion ? undefined : 'hover'}
                 animate="rest"

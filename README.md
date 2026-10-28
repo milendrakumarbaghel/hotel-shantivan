@@ -35,16 +35,13 @@ The site is built so nothing is invented. These items are **not yet confirmed**,
 
 | Item | Where | Effect while missing |
 | --- | --- | --- |
-| **WhatsApp number** | `src/config/hotel.ts` → `contact.whatsapp` | Floating WhatsApp button and WhatsApp CTAs are hidden; room buttons and the form prepare a message the guest can copy instead |
-| **Phone number** | `contact.phone` | Click-to-call buttons hidden |
+| **WhatsApp number** | `src/config/hotel.ts` → `contact.whatsapp` | Floating WhatsApp button and WhatsApp CTAs are hidden; room buttons and the form prepare a message the guest can copy instead. Confirm which of the two phone numbers (if either) is on WhatsApp |
 | **Production domain** | `siteUrl` | No canonical URL / sitemap.xml; social image URL is relative |
-| **Exact map pin** | `map.placeUrl` (Google Maps link) or `map.coordinates` | “Get Directions” routes to Suktara Airport (the hotel is opposite) and the page says so |
 | Google Map embed (optional) | `map.embedUrl` | A schematic, “not to scale” landmark diagram is shown |
 | **Room categories / tariffs / occupancy** | `src/data/rooms.ts` | Cards use descriptive titles (e.g. “Coral & Indigo”) and say “Category & tariff shared on enquiry” |
-| **Amenities confirmation** | `src/data/amenities.ts` | Items visible in the owner’s photos are shown (status `observed`). Set `SHOW_OBSERVED_AMENITIES = false` to show confirmed items only |
 | **Guest reviews** | `src/data/reviews.ts` | An honest “reviews coming soon” state is shown |
 | Google review link (optional) | `googleReviewUrl` | “Review us on Google” button hidden |
-| ANICX Media website URL | `developer.url` | Credit shown as plain text (no link) |
+| **ANICX Media website URL** | `developer.url` | Credit shown as plain text (no link) |
 
 > **Name check:** the signage and towels in the supplied photos and videos read **“Hotel Shanti One — Restro | Lodge”**, while the website brand is **“Hotel Shantivan”**. Please confirm the official name. If it differs, update `name` / `shortName` in `src/config/hotel.ts`. Everything else (SEO tags, intro, footer, messages) follows automatically.
 
@@ -58,12 +55,12 @@ Everything an owner might change lives in **`src/config/`** and **`src/data/`**.
 
 ```ts
 contact: {
-  phone: '+91 98765 43210',   // shown to guests, used for tel: links
+  phones: ['+91 79993 84893', '+91 70000 45162'],  // shown to guests, used for tel: links (primary first)
   whatsapp: '919876543210',   // country code + number, digits only
-  email: '',
+  email: 'Shantione8@gmail.com',
 },
 map: {
-  placeUrl: 'https://maps.app.goo.gl/…',  // share link of the verified listing
+  placeUrl: 'https://maps.app.goo.gl/pdMDffmvqNE3yqKM8',  // used by every “Get Directions” link
   coordinates: { lat: 22.0, lng: 79.0 },  // only if verified
   embedUrl: null,
   …
@@ -75,11 +72,11 @@ This file also feeds the build-time SEO tags, `robots.txt`, `sitemap.xml` and th
 
 ### Rooms — `src/data/rooms.ts`
 
-Each room has `name` (official category, `null` until confirmed), `descriptor` (fallback title), `description`, `image`, optional hover `video`, `features`, and optional `occupancy` / `price` (shown only when set). The booking form’s “Preferred room” list is generated from this file.
+Each room has `name` (official category, `null` until confirmed), `descriptor` (fallback title), `description`, `image`, optional hover `video`, `features`, and optional `occupancy` / `price` (shown only when set). The booking form’s “Preferred room” options (AC Room / Non-AC Room) are `roomPreferences` in the same file.
 
 ### Facilities — `src/data/amenities.ts`
 
-Add or remove items. Icons: `snowflake`, `utensils`, `trees`, `bed`, `sparkles`, `plane` (add more in `src/components/sections/Amenities.tsx` from [Lucide](https://lucide.dev/icons)). **Only list services the hotel really offers.**
+Currently Air Conditioner, Dining Hall and Garden. Icons: `air-vent`, `utensils`, `trees` (add more in `src/components/sections/Amenities.tsx` from [Lucide](https://lucide.dev/icons)). **Only list services the hotel really offers.**
 
 ### Reviews — `src/data/reviews.ts`
 

@@ -23,7 +23,7 @@ export function StructuredData() {
     image: [`${origin}${asset('/og-image.jpg')}`, `${origin}${asset('/assets/images/exterior-entrance-day.jpg')}`],
   }
   if (hotel.siteUrl) data.url = hotel.siteUrl
-  if (hotel.contact.phone) data.telephone = hotel.contact.phone
+  if (hotel.contact.phones.length) data.telephone = hotel.contact.phones
   if (hotel.contact.email) data.email = hotel.contact.email
   if (hotel.map.coordinates) {
     data.geo = { '@type': 'GeoCoordinates', latitude: hotel.map.coordinates.lat, longitude: hotel.map.coordinates.lng }

@@ -5,10 +5,16 @@ const digitsOnly = (value: string) => value.replace(/\D/g, '')
 /** WhatsApp number in wa.me format, or null when the owner has not configured one. */
 export const whatsappNumber: string | null = digitsOnly(hotel.contact.whatsapp) || null
 
-/** tel: href, or null when no phone number is configured. */
-export const phoneHref: string | null = hotel.contact.phone
-  ? `tel:${hotel.contact.phone.replace(/[^\d+]/g, '')}`
-  : null
+/** Every configured phone number with its tel: href, primary first. */
+export const phoneLinks: { label: string; href: string }[] = hotel.contact.phones
+  .filter((phone) => phone.trim())
+  .map((phone) => ({ label: phone.trim(), href: `tel:${phone.replace(/[^\d+]/g, '')}` }))
+
+/** tel: href of the primary number (single "Call" buttons), or null when none is configured. */
+export const phoneHref: string | null = phoneLinks[0]?.href ?? null
+
+/** mailto: href, or null when no email is configured. */
+export const emailHref: string | null = hotel.contact.email ? `mailto:${hotel.contact.email}` : null
 
 export function whatsappUrl(message: string): string | null {
   if (!whatsappNumber) return null

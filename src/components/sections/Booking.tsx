@@ -1,7 +1,7 @@
-import { Phone } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 import { lazy, Suspense, useRef } from 'react'
 import { fullAddress, hotel } from '../../config/hotel'
-import { phoneHref, whatsappNumber } from '../../lib/contact'
+import { emailHref, phoneLinks, whatsappNumber } from '../../lib/contact'
 import { useReveal } from '../animations/useReveal'
 import { WhatsAppIcon } from '../ui/Icons'
 import { Overline, SplitHeading } from '../ui/Typography'
@@ -51,10 +51,10 @@ export function Booking() {
                 </a>
               </li>
             )}
-            {phoneHref && (
-              <li data-item>
+            {phoneLinks.map((phone) => (
+              <li data-item key={phone.href}>
                 <a
-                  href={phoneHref}
+                  href={phone.href}
                   className="group flex items-center gap-4 rounded-[3px] border border-beige/15 p-4 transition-colors hover:border-gold-light/60"
                 >
                   <span className="grid size-11 place-items-center rounded-full bg-beige/10 text-gold-light">
@@ -62,7 +62,23 @@ export function Booking() {
                   </span>
                   <span>
                     <span className="text-overline block text-gold-light">Call</span>
-                    <span className="mt-0.5 block font-semibold">{hotel.contact.phone}</span>
+                    <span className="mt-0.5 block font-semibold">{phone.label}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+            {emailHref && (
+              <li data-item>
+                <a
+                  href={emailHref}
+                  className="group flex items-center gap-4 rounded-[3px] border border-beige/15 p-4 transition-colors hover:border-gold-light/60"
+                >
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-beige/10 text-gold-light">
+                    <Mail className="size-5" aria-hidden />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="text-overline block text-gold-light">Email</span>
+                    <span className="mt-0.5 block break-all font-semibold">{hotel.contact.email}</span>
                   </span>
                 </a>
               </li>

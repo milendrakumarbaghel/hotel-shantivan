@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { createBookingSchema, type BookingFormValues } from './booking'
 import { buildBookingMessage, buildRoomEnquiryMessage } from './messages'
 import { nightsBetween, parseLocalDate } from './dates'
+import { roomPreferences } from '../data/rooms'
 
 const TODAY = '2026-11-01'
 const schema = createBookingSchema(TODAY)
@@ -71,16 +72,26 @@ describe('booking schema', () => {
   })
 })
 
+describe('room preference', () => {
+  it('offers exactly AC Room and Non-AC Room', () => {
+    expect(roomPreferences).toEqual(['AC Room', 'Non-AC Room'])
+  })
+
+  it.each(['', undefined, ...roomPreferences])('room %s → valid', (room) => {
+    expect('room' in errorsFor({ room })).toBe(false)
+  })
+})
+
 describe('WhatsApp messages', () => {
   it('formats a booking enquiry with all details and never claims confirmation', () => {
-    const message = buildBookingMessage({ ...valid, room: 'Mist & Marble', message: 'Arriving late evening' })
+    const message = buildBookingMessage({ ...valid, room: 'Non-AC Room', message: 'Arriving late evening' })
     expect(message).toContain('Hello Hotel Shantivan,')
     expect(message).toContain('Guest Name: Asha Verma')
     expect(message).toContain('Phone: +91 98765 43210')
     expect(message).toMatch(/Check-in: .*10 Nov 2026/)
     expect(message).toMatch(/Check-out: .*12 Nov 2026 \(2 nights\)/)
     expect(message).toContain('Guests: 2')
-    expect(message).toContain('Preferred Room: Mist & Marble')
+    expect(message).toContain('Preferred Room: Non-AC Room')
     expect(message).toContain('Additional Message: Arriving late evening')
     expect(message.trim().endsWith('Please let me know the availability.')).toBe(true)
     expect(message.toLowerCase()).not.toContain('confirmed')

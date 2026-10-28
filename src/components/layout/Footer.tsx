@@ -1,8 +1,8 @@
-import { ArrowUpRight, Navigation, Phone } from 'lucide-react'
+import { ArrowUpRight, Mail, Navigation, Phone } from 'lucide-react'
 import { useRef } from 'react'
 import { hotel } from '../../config/hotel'
 import { navItems } from '../../data/navigation'
-import { directionsUrl, phoneHref, whatsappNumber } from '../../lib/contact'
+import { directionsUrl, emailHref, phoneLinks, whatsappNumber } from '../../lib/contact'
 import { EASE, gsap, MQ, useGSAP } from '../../lib/gsap'
 import { useReveal } from '../animations/useReveal'
 import { Button } from '../ui/Button'
@@ -45,7 +45,7 @@ export function Footer() {
         </div>
 
         <div data-reveal="items" className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-12">
-          <div data-item className="lg:col-span-4">
+          <div data-item className="lg:col-span-3">
             <div className="flex items-center gap-3">
               <Monogram className="h-11 w-auto text-gold-light" />
               <p className="flex flex-col leading-none">
@@ -73,16 +73,16 @@ export function Footer() {
             </a>
           </div>
 
-          <div data-item className="lg:col-span-2">
+          <div data-item className="lg:col-span-3">
             <h2 className="text-overline text-gold-light">Contact</h2>
             <ul className="mt-5 space-y-1 text-sm">
-              {phoneHref && (
-                <li>
-                  <a href={phoneHref} className={`${linkClass} gap-2`}>
-                    <Phone className="size-4" aria-hidden /> {hotel.contact.phone}
+              {phoneLinks.map((phone) => (
+                <li key={phone.href}>
+                  <a href={phone.href} className={`${linkClass} gap-2 whitespace-nowrap`}>
+                    <Phone className="size-4" aria-hidden /> {phone.label}
                   </a>
                 </li>
-              )}
+              ))}
               {whatsappNumber && (
                 <li>
                   <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" className={`${linkClass} gap-2`}>
@@ -90,10 +90,10 @@ export function Footer() {
                   </a>
                 </li>
               )}
-              {hotel.contact.email && (
+              {emailHref && (
                 <li>
-                  <a href={`mailto:${hotel.contact.email}`} className={linkClass}>
-                    {hotel.contact.email}
+                  <a href={emailHref} className={`${linkClass} gap-2 break-all`}>
+                    <Mail className="size-4 shrink-0" aria-hidden /> {hotel.contact.email}
                   </a>
                 </li>
               )}
@@ -134,7 +134,7 @@ export function Footer() {
 
       <div className="shell flex flex-col gap-4 border-t border-beige/10 py-8 pb-[max(2rem,env(safe-area-inset-bottom))] text-[0.78rem] text-beige/55 lg:flex-row lg:items-center lg:justify-between">
         <p>
-          © <span suppressHydrationWarning>{new Date().getFullYear()}</span> {hotel.name}. All rights reserved.
+          © {hotel.name}. All Rights Reserved.
         </p>
         <p className="max-w-md lg:text-center">
           {hotel.map.embedUrl
@@ -147,7 +147,7 @@ export function Footer() {
             <a
               href={hotel.developer.url}
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               className="font-semibold text-beige/80 underline-offset-4 hover:text-gold-light hover:underline"
             >
               {hotel.developer.name}

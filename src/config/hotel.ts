@@ -28,8 +28,8 @@ export interface HotelConfig {
   landmark: string
   nearby: string[]
   contact: {
-    /** Click-to-call number shown to guests, e.g. '+91 98765 43210'. */
-    phone: string
+    /** Click-to-call numbers shown to guests, primary first, e.g. ['+91 98765 43210']. */
+    phones: string[]
     /** WhatsApp number in international format, digits only, e.g. '919876543210'. */
     whatsapp: string
     email: string
@@ -69,19 +69,21 @@ export const hotel: HotelConfig = {
   landmark: 'Opposite Suktara Airport, Badalpar Road',
   nearby: ['Seoni city', 'Pench National Park region'],
   contact: {
-    phone: '', // TODO(owner): e.g. '+91 98765 43210'
-    whatsapp: '', // TODO(owner): e.g. '919876543210'
-    email: '', // TODO(owner): optional
+    phones: ['+91 79993 84893', '+91 70000 45162'],
+    whatsapp: '', // TODO(owner): confirm which number (if any) is on WhatsApp, e.g. '917999384893'
+    email: 'Shantione8@gmail.com',
   },
   map: {
     coordinates: null, // TODO(owner): confirm exact pin
-    placeUrl: null, // TODO(owner): Google Maps share link of the hotel listing
+    placeUrl: 'https://maps.app.goo.gl/pdMDffmvqNE3yqKM8',
     embedUrl: null,
     fallbackDestination: 'Suktara Airport, Badalpar Road, Seoni, Madhya Pradesh 480661',
   },
   googleReviewUrl: null,
   siteUrl: null, // TODO(owner): production domain
-  developer: { name: 'ANICX Media', url: null }, // TODO: add verified ANICX Media URL
+  // TODO(owner): ANICX Media's official website URL is not yet confirmed — set `url` (https://…) to link the
+  // footer credit. While null, the credit is shown as plain text. Never guess this link.
+  developer: { name: 'ANICX Media', url: null },
 }
 
 /** Owner-facing notice shown wherever an enquiry is made. */

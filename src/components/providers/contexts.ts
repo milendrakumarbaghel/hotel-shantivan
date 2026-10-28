@@ -8,7 +8,7 @@ export interface ScrollApi {
 }
 
 export interface EnquiryApi {
-  /** Room label pre-selected in the booking form (set by room cards). */
+  /** Room card label, noted in the booking form's message (set by room cards). */
   preferredRoom: string
   setPreferredRoom: (label: string) => void
   /** Opens WhatsApp for a room — or, if WhatsApp isn't configured, pre-fills the form. */
