@@ -1,4 +1,4 @@
-// Video pipeline for Hotel Shantivan (macOS only — uses AVFoundation, no ffmpeg needed).
+// Video pipeline for Hotel Shantione (macOS only — uses AVFoundation, no ffmpeg needed).
 //
 // For every entry in media/media-sources.json:
 //   videos  -> public/assets/videos/<id>.mp4   (audio track removed, H.264 passthrough, fast-start)

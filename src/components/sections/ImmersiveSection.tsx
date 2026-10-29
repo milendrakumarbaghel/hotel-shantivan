@@ -260,7 +260,7 @@ export function ImmersiveSection() {
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <div data-reveal="up">
-              <Overline tone="light">A Walk Through Shantivan</Overline>
+              <Overline tone="light">A Walk Through Shantione</Overline>
             </div>
             <SplitHeading
               id="experience-title"
@@ -269,7 +269,7 @@ export function ImmersiveSection() {
             />
           </div>
           <p data-reveal="up" className="text-body max-w-md text-beige/75 lg:col-span-5 lg:pb-3">
-            From the welcome arch to a quiet room at the end of a bright corridor — Shantivan, exactly as you will find
+            From the welcome arch to a quiet room at the end of a bright corridor — Shantione, exactly as you will find
             it.
           </p>
         </div>

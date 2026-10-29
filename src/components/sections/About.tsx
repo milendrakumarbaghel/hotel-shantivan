@@ -28,7 +28,7 @@ export function About() {
         {/* Story */}
         <div className="lg:col-span-5 lg:pr-6">
           <div data-reveal="up">
-            <Overline>Discover Shantivan</Overline>
+            <Overline>Discover Shantione</Overline>
           </div>
           <SplitHeading
             id="about-title"

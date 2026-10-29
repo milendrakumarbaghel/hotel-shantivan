@@ -1,6 +1,6 @@
-# Hotel Shantivan — Website
+# Hotel Shantione — Website
 
-A cinematic, single-page website for **Hotel Shantivan**, Suktara, Seoni (Madhya Pradesh 480661) — opposite Suktara Airport on Badalpar Road.
+A cinematic, single-page website for **Hotel Shantione**, Suktara, Seoni (Madhya Pradesh 480661) — opposite Suktara Airport on Badalpar Road.
 
 Static site: React + TypeScript + Vite, prerendered to HTML at build time. No backend, database or login. Enquiries go straight to the hotel over WhatsApp.
 
@@ -43,7 +43,7 @@ The site is built so nothing is invented. These items are **not yet confirmed**,
 | Google review link (optional) | `googleReviewUrl` | “Review us on Google” button hidden |
 | **ANICX Media website URL** | `developer.url` | Credit shown as plain text (no link) |
 
-> **Name check:** the signage and towels in the supplied photos and videos read **“Hotel Shanti One — Restro | Lodge”**, while the website brand is **“Hotel Shantivan”**. Please confirm the official name. If it differs, update `name` / `shortName` in `src/config/hotel.ts`. Everything else (SEO tags, intro, footer, messages) follows automatically.
+> **Name:** the website brand is **“Hotel Shantione”** (the signage and towels in the supplied photos read “Hotel Shanti One — Restro | Lodge”). To change it, update `name` / `shortName` in `src/config/hotel.ts`. Everything else (SEO tags, intro, footer, messages) follows automatically.
 
 ---
 
@@ -145,7 +145,7 @@ media/           originals + media-sources.json
 - **Design system:** forest green `#244A36`, warm beige `#F4EFE5`, muted gold `#C5A46D`, dark text `#292D29`. Darker and lighter gold variants keep small text at WCAG AA contrast. Type is Cormorant Garamond (headings) and Manrope (body), self-hosted, with all sizes fluid via `clamp()`.
 - **Animation split:** GSAP + ScrollTrigger drive scroll-linked work (hero entrance and parallax, masked reveals, the immersive corridor, the footer wordmark). Motion for React handles UI state (menu, lightbox, carousel, filters, magnetic buttons, hover). The two never animate the same property on the same element. Everything is cleaned up on unmount via `useGSAP` / `gsap.matchMedia`.
 - **Smooth scrolling:** Lenis, synced to the GSAP ticker. It is disabled for `prefers-reduced-motion`, and touch scrolling stays native.
-- **3D:** the “Walk Through Shantivan” section is a CSS-3D corridor of real photographs driven by scroll (sticky, not pinned). Behind it, a tiny React Three Fiber scene (~250 points) evokes the garden’s string lights. The WebGL chunk loads only on capable desktops (no reduced motion or data saver, at least 4 cores and 4 GB RAM), only near the section, and renders only while visible. Phones and reduced-motion visitors get a static layered composition.
+- **3D:** the “Walk Through Shantione” section is a CSS-3D corridor of real photographs driven by scroll (sticky, not pinned). Behind it, a tiny React Three Fiber scene (~250 points) evokes the garden’s string lights. The WebGL chunk loads only on capable desktops (no reduced motion or data saver, at least 4 cores and 4 GB RAM), only near the section, and renders only while visible. Phones and reduced-motion visitors get a static layered composition.
 - **Prerendering:** `npm run build` renders the full page to static HTML (SEO, social previews, content visible without JavaScript), inlines the CSS, then hydrates in the browser. The booking form’s code (React Hook Form + Zod) is split out and loads on demand.
 - **Booking:** validated with Zod (required fields, 10–15-digit phone, no past dates, check-out after check-in, 1–20 guests). The result is a formatted, URL-encoded WhatsApp message. The site always states that a booking is confirmed only after the hotel verifies availability.
 

@@ -4,7 +4,7 @@ import { useMemo, useRef, type RefObject } from 'react'
 import { AdditiveBlending, BufferGeometry, CanvasTexture, Float32BufferAttribute, type Group } from 'three'
 
 /**
- * Abstract string lights — a nod to the warm bulb canopy over Shantivan's garden.
+ * Abstract string lights — a nod to the warm bulb canopy over Shantione's garden.
  * ~250 points and a handful of fireflies: deliberately tiny so it costs almost nothing.
  * `progress` (0→1) is written by the scroll timeline and gently draws the lights forward.
  */

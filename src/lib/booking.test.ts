@@ -85,7 +85,7 @@ describe('room preference', () => {
 describe('WhatsApp messages', () => {
   it('formats a booking enquiry with all details and never claims confirmation', () => {
     const message = buildBookingMessage({ ...valid, room: 'Non-AC Room', message: 'Arriving late evening' })
-    expect(message).toContain('Hello Hotel Shantivan,')
+    expect(message).toContain('Hello Hotel Shantione,')
     expect(message).toContain('Guest Name: Asha Verma')
     expect(message).toContain('Phone: +91 98765 43210')
     expect(message).toMatch(/Check-in: .*10 Nov 2026/)

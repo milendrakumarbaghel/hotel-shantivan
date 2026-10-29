@@ -1,6 +1,6 @@
 /**
  * ─────────────────────────────────────────────────────────────────────────────
- *  HOTEL SHANTIVAN — CENTRAL BUSINESS CONFIGURATION
+ *  HOTEL SHANTIONE — CENTRAL BUSINESS CONFIGURATION
  * ─────────────────────────────────────────────────────────────────────────────
  *  Everything a non-developer may need to change lives here.
  *  Values left as `null` / '' are NOT yet confirmed by the owner — the website
@@ -46,17 +46,17 @@ export interface HotelConfig {
   }
   /** Google Business Profile "write a review" link, if available. */
   googleReviewUrl: string | null
-  /** Production URL without trailing slash, e.g. 'https://www.hotelshantivan.com'. */
+  /** Production URL without trailing slash, e.g. 'https://www.hotelshantione.com'. */
   siteUrl: string | null
   developer: { name: string; url: string | null }
 }
 
 export const hotel: HotelConfig = {
-  name: 'Hotel Shantivan',
-  shortName: 'Shantivan',
+  name: 'Hotel Shantione',
+  shortName: 'Shantione',
   tagline: 'Where Comfort Meets Tranquility',
   seoDescription:
-    'Hotel Shantivan in Suktara, Seoni (Madhya Pradesh) — comfortable rooms, a calm garden and warm hospitality opposite Suktara Airport on Badalpar Road, near Seoni city and the Pench National Park region.',
+    'Hotel Shantione in Suktara, Seoni (Madhya Pradesh) — comfortable rooms, a calm garden and warm hospitality opposite Suktara Airport on Badalpar Road, near Seoni city and the Pench National Park region.',
   address: {
     line1: 'Opposite Suktara Airport, Badalpar Road',
     locality: 'Suktara',
@@ -88,7 +88,7 @@ export const hotel: HotelConfig = {
 
 /** Owner-facing notice shown wherever an enquiry is made. */
 export const BOOKING_NOTICE =
-  'Your booking will be confirmed only after Hotel Shantivan verifies availability and confirms your reservation.'
+  'Your booking will be confirmed only after Hotel Shantione verifies availability and confirms your reservation.'
 
 export const fullAddress = [
   hotel.address.line1,

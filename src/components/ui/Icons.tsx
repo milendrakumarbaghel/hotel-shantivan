@@ -9,7 +9,7 @@ export function WhatsAppIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-/** Shantivan monogram — an arch (echoing the hotel's arched doorways) holding a leaf. */
+/** Shantione monogram — an arch (echoing the hotel's arched doorways) holding a leaf. */
 export function Monogram(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 40 48" fill="none" aria-hidden="true" {...props}>

@@ -1,4 +1,4 @@
-// Image pipeline for Hotel Shantivan.
+// Image pipeline for Hotel Shantione.
 //
 // Reads media/media-sources.json and produces:
 //   public/assets/images/<id>.jpg          full-quality master (original bytes when no crop is needed)
