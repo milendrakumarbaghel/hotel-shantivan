@@ -44,7 +44,8 @@ export function About() {
           <div className="text-body mt-8 space-y-5 text-ink-soft">
             <p data-reveal="up">
               {hotel.name} sits on Badalpar Road in {hotel.address.locality}, right in front of Redbird Airport (Suktara Domestic Airport) — an
-              easy-to-find, peaceful stop close to {hotel.address.city} city and the wider Pench National Park region.
+              easy-to-find, peaceful stop close to {hotel.address.city} city and the NH44 Nagpur Highway, and a convenient base
+              for Pench National Park via the Karmajhiri gate.
             </p>
             <p data-reveal="up" data-delay="0.08">
               Inside, light-filled arched corridors lead to spacious rooms with polished marble floors and freshly made

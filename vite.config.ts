@@ -19,6 +19,7 @@ function hotelSeo(): Plugin {
   const head = [
     `<title>${escape(title)}</title>`,
     `<meta name="description" content="${escape(hotel.seoDescription)}" />`,
+    `<meta name="keywords" content="${escape(hotel.keywords.join(', '))}" />`,
     `<meta name="robots" content="index, follow, max-image-preview:large" />`,
     site && `<link rel="canonical" href="${site}/" />`,
     `<meta name="geo.region" content="IN-MP" />`,

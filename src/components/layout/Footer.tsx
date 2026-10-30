@@ -54,8 +54,8 @@ export function Footer() {
               </p>
             </div>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-beige/65">
-              A calm, comfortable stay in Suktara, Seoni — in front of Redbird Airport, close to Seoni city and the Pench
-              National Park region.
+              A calm, comfortable stay in Suktara, Seoni — in front of Redbird Airport, close to Seoni city, the NH44
+              Nagpur Highway and Pench National Park (Karmajhiri).
             </p>
           </div>
 

@@ -16,6 +16,8 @@ export interface HotelConfig {
   tagline: string
   /** Used for <meta name="description"> and social cards. */
   seoDescription: string
+  /** Search phrases guests use to find the hotel — <meta name="keywords"> and schema.org keywords. */
+  keywords: string[]
   address: {
     line1: string
     locality: string
@@ -56,7 +58,25 @@ export const hotel: HotelConfig = {
   shortName: 'Shantione',
   tagline: 'Where Comfort Meets Tranquility',
   seoDescription:
-    'Hotel Shantione in Suktara, Seoni (Madhya Pradesh) — comfortable rooms, a calm garden and warm hospitality in front of Redbird Airport (Suktara Domestic Airport) on Badalpar Road, near Seoni city and the Pench National Park region.',
+    'Hotel Shantione in Suktara, Seoni (Madhya Pradesh) — AC & non-AC rooms, a calm garden and warm hospitality in front of Redbird Airport (Suktara Domestic Airport) on Badalpar Road, near the NH44 Nagpur Highway, Seoni city and Pench National Park (Karmajhiri gate).',
+  keywords: [
+    'Hotel Shantione',
+    'hotel in Seoni',
+    'hotel in Suktara',
+    'hotel in Suktra',
+    'hotel near Pench National Park',
+    'hotel near Pench Tiger Reserve',
+    'hotel near Karmajhiri',
+    'Karmajhiri gate Pench stay',
+    'hotel near NH44',
+    'hotel near Nagpur highway',
+    'hotel near Redbird Airport',
+    'hotel near Suktara Airport',
+    'Badalpar Road hotel',
+    'lodge in Seoni',
+    'AC rooms in Seoni',
+    'Seoni Madhya Pradesh hotel',
+  ],
   address: {
     line1: 'In front of Redbird Airport, Badalpar Road',
     locality: 'Suktara',
@@ -67,7 +87,7 @@ export const hotel: HotelConfig = {
     countryCode: 'IN',
   },
   landmark: 'Redbird Airport (Suktara Domestic Airport)',
-  nearby: ['Seoni city', 'Pench National Park region'],
+  nearby: ['Seoni city', 'NH44 Nagpur Highway', 'Pench National Park (Karmajhiri gate)'],
   contact: {
     phones: ['+91 79993 84893', '+91 70000 45162'],
     whatsapp: '917999384893',

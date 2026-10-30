@@ -12,6 +12,7 @@ export function StructuredData() {
     '@type': 'Hotel',
     name: hotel.name,
     description: hotel.seoDescription,
+    keywords: hotel.keywords.join(', '),
     address: {
       '@type': 'PostalAddress',
       streetAddress: hotel.address.line1,

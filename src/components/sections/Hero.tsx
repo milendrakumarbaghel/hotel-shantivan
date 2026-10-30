@@ -1,8 +1,8 @@
-import { ArrowDownRight, ArrowRight } from 'lucide-react'
+import { ArrowDownRight, ArrowRight, Navigation } from 'lucide-react'
 import { useRef } from 'react'
 import { hotel } from '../../config/hotel'
 import { featured, getImage, getVideo } from '../../config/media'
-import { whatsappNumber } from '../../lib/contact'
+import { directionsUrl, whatsappNumber } from '../../lib/contact'
 import { EASE, gsap, MQ, useGSAP } from '../../lib/gsap'
 import { useEnquiry } from '../providers/contexts'
 import { Button } from '../ui/Button'
@@ -138,15 +138,15 @@ export function Hero() {
 
           <p data-hero-copy className="text-lead mt-7 max-w-[34rem] text-beige/80">
             A peaceful stay in front of Redbird Airport on Badalpar Road — bright, well-kept rooms, a garden glowing with
-            string lights, and warm, unhurried hospitality near Seoni and the Pench National Park region.
+            string lights, and warm, unhurried hospitality near Seoni, the NH44 Nagpur Highway and Pench National Park.
           </p>
 
           <div data-hero-cta className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
             <Button href="#contact" size="lg" icon={<ArrowRight className="size-4" aria-hidden />}>
               Book / Enquire Now
             </Button>
-            <Button href="#about" variant="outline-light" size="lg">
-              Explore the Stay
+            <Button href={directionsUrl()} external variant="outline-light" size="lg" icon={<Navigation className="size-4" aria-hidden />}>
+              Get Directions
             </Button>
             {whatsappNumber && (
               <button
@@ -157,6 +157,12 @@ export function Hero() {
                 <WhatsAppIcon className="size-4" /> Enquire on WhatsApp
               </button>
             )}
+            <a
+              href="#about"
+              className="inline-flex min-h-12 items-center gap-2 px-2 text-sm font-semibold text-beige/85 underline-offset-4 transition-colors hover:text-gold-light hover:underline"
+            >
+              Explore the Stay
+            </a>
           </div>
         </div>
       </div>
