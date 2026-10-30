@@ -56,9 +56,9 @@ export const hotel: HotelConfig = {
   shortName: 'Shantione',
   tagline: 'Where Comfort Meets Tranquility',
   seoDescription:
-    'Hotel Shantione in Suktara, Seoni (Madhya Pradesh) — comfortable rooms, a calm garden and warm hospitality opposite Suktara Airport on Badalpar Road, near Seoni city and the Pench National Park region.',
+    'Hotel Shantione in Suktara, Seoni (Madhya Pradesh) — comfortable rooms, a calm garden and warm hospitality in front of Redbird Airport (Suktara Domestic Airport) on Badalpar Road, near Seoni city and the Pench National Park region.',
   address: {
-    line1: 'Opposite Suktara Airport, Badalpar Road',
+    line1: 'In front of Redbird Airport, Badalpar Road',
     locality: 'Suktara',
     city: 'Seoni',
     state: 'Madhya Pradesh',
@@ -66,11 +66,11 @@ export const hotel: HotelConfig = {
     country: 'India',
     countryCode: 'IN',
   },
-  landmark: 'Opposite Suktara Airport, Badalpar Road',
+  landmark: 'Redbird Airport (Suktara Domestic Airport)',
   nearby: ['Seoni city', 'Pench National Park region'],
   contact: {
     phones: ['+91 79993 84893', '+91 70000 45162'],
-    whatsapp: '', // TODO(owner): confirm which number (if any) is on WhatsApp, e.g. '917999384893'
+    whatsapp: '917999384893',
     email: 'Shantione8@gmail.com',
   },
   map: {
@@ -81,9 +81,7 @@ export const hotel: HotelConfig = {
   },
   googleReviewUrl: null,
   siteUrl: null, // TODO(owner): production domain
-  // TODO(owner): ANICX Media's official website URL is not yet confirmed — set `url` (https://…) to link the
-  // footer credit. While null, the credit is shown as plain text. Never guess this link.
-  developer: { name: 'ANICX Media', url: null },
+  developer: { name: 'ANICX Media', url: 'https://anicx-media.vercel.app/' },
 }
 
 /** Owner-facing notice shown wherever an enquiry is made. */

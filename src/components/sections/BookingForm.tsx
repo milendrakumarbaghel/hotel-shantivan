@@ -183,9 +183,13 @@ export default function BookingForm() {
   const onSubmit = (values: BookingFormValues) => {
     const message = buildBookingMessage(values)
     const url = whatsappUrl(message)
-    // Popup blockers may refuse this after async validation — the success panel offers a direct link too.
-    if (url) window.open(url, '_blank', 'noopener,noreferrer')
     setResult({ message, url })
+    if (!url) return
+    // Popup blockers (notably iOS Safari) may refuse a new tab after async validation — fall back to this tab,
+    // which hands off to the WhatsApp app on phones. The success panel also offers a direct link.
+    const tab = window.open(url, '_blank')
+    if (tab) tab.opener = null
+    else window.location.assign(url)
   }
 
   const stepGuests = (delta: number) => {

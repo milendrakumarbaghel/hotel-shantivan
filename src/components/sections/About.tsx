@@ -43,7 +43,7 @@ export function About() {
           />
           <div className="text-body mt-8 space-y-5 text-ink-soft">
             <p data-reveal="up">
-              {hotel.name} sits on Badalpar Road in {hotel.address.locality}, directly opposite Suktara Airport — an
+              {hotel.name} sits on Badalpar Road in {hotel.address.locality}, right in front of Redbird Airport (Suktara Domestic Airport) — an
               easy-to-find, peaceful stop close to {hotel.address.city} city and the wider Pench National Park region.
             </p>
             <p data-reveal="up" data-delay="0.08">

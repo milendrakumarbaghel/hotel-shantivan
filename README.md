@@ -1,6 +1,6 @@
 # Hotel Shantione — Website
 
-A cinematic, single-page website for **Hotel Shantione**, Suktara, Seoni (Madhya Pradesh 480661) — opposite Suktara Airport on Badalpar Road.
+A cinematic, single-page website for **Hotel Shantione**, Suktara, Seoni (Madhya Pradesh 480661) — in front of Redbird Airport (Suktara Domestic Airport) on Badalpar Road.
 
 Static site: React + TypeScript + Vite, prerendered to HTML at build time. No backend, database or login. Enquiries go straight to the hotel over WhatsApp.
 
@@ -35,13 +35,11 @@ The site is built so nothing is invented. These items are **not yet confirmed**,
 
 | Item | Where | Effect while missing |
 | --- | --- | --- |
-| **WhatsApp number** | `src/config/hotel.ts` → `contact.whatsapp` | Floating WhatsApp button and WhatsApp CTAs are hidden; room buttons and the form prepare a message the guest can copy instead. Confirm which of the two phone numbers (if either) is on WhatsApp |
 | **Production domain** | `siteUrl` | No canonical URL / sitemap.xml; social image URL is relative |
 | Google Map embed (optional) | `map.embedUrl` | A schematic, “not to scale” landmark diagram is shown |
 | **Room categories / tariffs / occupancy** | `src/data/rooms.ts` | Cards use descriptive titles (e.g. “Coral & Indigo”) and say “Category & tariff shared on enquiry” |
 | **Guest reviews** | `src/data/reviews.ts` | An honest “reviews coming soon” state is shown |
 | Google review link (optional) | `googleReviewUrl` | “Review us on Google” button hidden |
-| **ANICX Media website URL** | `developer.url` | Credit shown as plain text (no link) |
 
 > **Name:** the website brand is **“Hotel Shantione”** (the signage and towels in the supplied photos read “Hotel Shanti One — Restro | Lodge”). To change it, update `name` / `shortName` in `src/config/hotel.ts`. Everything else (SEO tags, intro, footer, messages) follows automatically.
 

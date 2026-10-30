@@ -137,7 +137,7 @@ export function Hero() {
           </h1>
 
           <p data-hero-copy className="text-lead mt-7 max-w-[34rem] text-beige/80">
-            A peaceful stay opposite Suktara Airport on Badalpar Road — bright, well-kept rooms, a garden glowing with
+            A peaceful stay in front of Redbird Airport on Badalpar Road — bright, well-kept rooms, a garden glowing with
             string lights, and warm, unhurried hospitality near Seoni and the Pench National Park region.
           </p>
 
@@ -170,7 +170,7 @@ export function Hero() {
           <ArrowDownRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" aria-hidden />
         </a>
         <p className="text-overline hidden text-beige/55 md:block lg:hidden">
-          {hotel.landmark}
+          Landmark · {hotel.landmark}
         </p>
       </div>
     </section>

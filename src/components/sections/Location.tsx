@@ -11,14 +11,14 @@ import { Overline, SplitHeading } from '../ui/Typography'
 
 const photo = getImage(featured.locationImage)
 
-/** Diagrammatic landmark map — shows only verified relationships (hotel opposite the airport on Badalpar Road). */
+/** Diagrammatic landmark map — shows only verified relationships (hotel in front of the airport, between it and Badalpar Road). */
 function SchematicMap() {
   return (
     <figure className="grain relative overflow-hidden rounded-[3px] bg-forest text-beige">
       <svg viewBox="0 0 560 420" className="block h-auto w-full" role="img" aria-labelledby="map-title map-desc">
         <title id="map-title">Schematic location map</title>
         <desc id="map-desc">
-          {hotel.name} is on Badalpar Road, directly opposite Suktara Airport. Diagram not to scale.
+          {hotel.name} is in front of Redbird Airport (Suktara Domestic Airport), between the airport and Badalpar Road. Diagram not to scale.
         </desc>
         <defs>
           <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
@@ -30,13 +30,16 @@ function SchematicMap() {
         {/* Airport */}
         <g transform="translate(70 70) rotate(-8)">
           <rect width="400" height="96" rx="6" fill="rgba(244,239,229,0.05)" stroke="rgba(217,191,143,0.35)" />
-          <rect x="24" y="40" width="352" height="16" rx="2" fill="rgba(244,239,229,0.14)" />
+          <rect x="24" y="54" width="352" height="16" rx="2" fill="rgba(244,239,229,0.14)" />
           {Array.from({ length: 10 }, (_, i) => (
-            <rect key={i} x={44 + i * 34} y="47" width="16" height="2" fill="rgba(19,40,28,0.9)" />
+            <rect key={i} x={44 + i * 34} y="61" width="16" height="2" fill="rgba(19,40,28,0.9)" />
           ))}
         </g>
         <text x="96" y="62" className="fill-gold-light text-[13px] font-bold uppercase tracking-[0.2em]">
-          Suktara Airport
+          Redbird Airport
+        </text>
+        <text x="96" y="80" className="fill-beige/55 text-[10px] font-semibold uppercase tracking-[0.18em]">
+          Suktara Domestic Airport
         </text>
 
         {/* Badalpar Road */}
@@ -46,13 +49,13 @@ function SchematicMap() {
           Badalpar Road
         </text>
 
-        {/* Hotel pin — opposite the airport */}
-        <g transform="translate(250 312)">
+        {/* Hotel pin — in front of the airport, between it and Badalpar Road */}
+        <g transform="translate(250 192)">
           <circle r="16" className="pin-ping origin-center fill-gold/50" style={{ transformBox: 'fill-box' }} />
           <circle r="7" className="fill-gold" />
           <circle r="3" className="fill-forest-night" />
         </g>
-        <text x="274" y="340" className="fill-beige font-serif text-[22px] italic">
+        <text x="274" y="200" className="fill-beige font-serif text-[22px] italic">
           {hotel.name}
         </text>
       </svg>
@@ -130,7 +133,7 @@ export function Location() {
               </span>
               <div>
                 <p className="text-overline text-gold-deep">Landmark</p>
-                <p className="mt-1.5 text-body text-ink">Directly opposite Suktara Airport, on Badalpar Road.</p>
+                <p className="mt-1.5 text-body text-ink">In front of {hotel.landmark}, on Badalpar Road.</p>
               </div>
             </div>
             <div data-item className="flex gap-4">
@@ -164,7 +167,7 @@ export function Location() {
           </div>
           {directionsUseLandmark && (
             <p data-reveal="up" className="mt-5 max-w-md text-[0.8rem] leading-relaxed text-ink-soft">
-              Directions open Google Maps to Suktara Airport — the hotel is directly opposite, on Badalpar Road.
+              Directions open Google Maps to Suktara Airport — the hotel is right in front of Redbird Airport, on Badalpar Road.
             </p>
           )}
         </div>
